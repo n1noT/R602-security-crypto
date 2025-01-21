@@ -1,12 +1,17 @@
 async function login(email, password) {
     let auth = false;
 
-    const response = await fetch('http://localhost:8000/login1.php', {
+    const response = await fetch('http://127.0.0.1:54902/login1.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(
+            { 
+                username: email, 
+                password: password 
+            }
+        ),
     });
 
     const data = await response.json();
